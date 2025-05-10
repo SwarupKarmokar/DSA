@@ -64,14 +64,15 @@ const groupAnagrams = (strs) => {
     for (let char of str) {
       count[char.charCodeAt(0) - 97]++; // build frequency count
     }
-
-    const key = count.join('#'); // create unique key like "1#0#0#0#...#1"
+console.log(count)
+const key = count.join('#'); // create unique key like "1#0#0#0#...#1"
+console.log(key)
     
-    if (!map.has(key)) map.set(key, []);
-    map.get(key).push(str);
+    // if (!map.has(key)) map.set(key, []);
+    // map.get(key).push(str);
   }
 
-  return Array.from(map.values());
+//   return Array.from(map.values());
 }
 
 console.log(groupEffMid(["eat","tea","tan","ate","nat","bat"]))
