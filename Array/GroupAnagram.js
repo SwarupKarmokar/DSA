@@ -45,7 +45,7 @@ const groupEffMidNewMap = (strs) => {
         const sortedKey = item.split('').sort().join('');
 
         if (!map.has(sortedKey)) {
-            map.set(sortedKey,[item]);
+            map.set(sortedKey, [item]);
         } else {
             map.get(sortedKey).push(item);
         }
@@ -56,25 +56,25 @@ const groupEffMidNewMap = (strs) => {
 
 
 const groupAnagrams = (strs) => {
-  const map = new Map();
+    const map = new Map();
 
-  for (let str of strs) {
-    const count = new Array(26).fill(0); // for 'a' to 'z'
+    for (let str of strs) {
+        const count = new Array(26).fill(0); // for 'a' to 'z'
 
-    for (let char of str) {
-      count[char.charCodeAt(0) - 97]++; // build frequency count
+        for (let char of str) {
+            count[char.charCodeAt(0) - 97]++; // build frequency count
+        }
+        // console.log(count)
+        const key = count.join('#'); // create unique key like "1#0#0#0#...#1"
+        // console.log(key)
+
+        if (!map.has(key)) map.set(key, []);
+        map.get(key).push(str);
     }
-console.log(count)
-const key = count.join('#'); // create unique key like "1#0#0#0#...#1"
-console.log(key)
-    
-    // if (!map.has(key)) map.set(key, []);
-    // map.get(key).push(str);
-  }
 
-//   return Array.from(map.values());
+      return Array.from(map.values());
 }
 
-console.log(groupEffMid(["eat","tea","tan","ate","nat","bat"]))
-console.log(groupEffMidNewMap(["eat","tea","tan","ate","nat","bat"]))
-console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+console.log(groupEffMid(["eat", "tea", "tan", "ate", "nat", "bat"]))
+console.log(groupEffMidNewMap(["eat", "tea", "tan", "ate", "nat", "bat"]))
+console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
